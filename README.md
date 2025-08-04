@@ -1,6 +1,11 @@
 # Complete Customer Analytics with Online Retail II Dataset
 
-![Project Banner](images/3d_rfm_analysis.png)
+<p align="center">
+  <img src="images/3d_rfm_analysis.png" alt="Image 1" width="43%" style="display:inline-block;">
+  <img src="images/sales_over_time.png" alt="Image 2" width="56%" style="display:inline-block;">
+</p>
+
+
 
 ## 📝 Project Summary
 
