@@ -124,7 +124,7 @@ This project follows a sequential workflow, with each step detailed in its respe
         pip install -U pip
         pip install -e .
         ```
-5.  Launch Jupyter Notebook or JupyterLab and navigate to the `notebooks/` directory to explore the analyses.
+5.  Launch Jupyter Notebook or JupyterLab and navigate to the `notebooks/` directory to explore the analyses. (Optional)
     ```powershell
     jupyter notebook
     ```
