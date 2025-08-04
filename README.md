@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This project utilizes modern data science techniques to perform customer analytics, segmentation, churn prediction, customer lifetime value (CLV) analysis, and A/B testing on the Online Retail II dataset. All analyses are conducted in a Jupyter Notebook environment with a focus on visualization and modeling.
+This project utilizes modern data science techniques to perform customer analytics, segmentation, churn prediction, customer lifetime value (CLV) analysis, and A/B testing on the Online Retail II dataset.
 
 ## Project Objectives
 
@@ -50,56 +50,39 @@ The following fields summarize the columns and their meanings in the Online Reta
 * lifetimes
 * scipy
 
-## Workflow
+## Workflow & Notebook Summaries
 
-1. **Data Cleaning and EDA**: Cleaning of missing/erroneous records, detection of outliers (IsolationForest), basic statistics and visualizations.
-2. **RFM Analysis & Segmentation**: Segmenting customers based on Recency, Frequency, Monetary scores and visualizing the results.
-3. **Churn Prediction**: Modeling and evaluating customer churn risk using machine learning models (XGBoost, scikit-learn models).
-4. **CLV Analysis**: CLV prediction using BetaGeoFitter, GammaGammaFitter, XGBoost; reporting and visualization of segment-based outputs.
-5. **A/B Testing**: Statistical tests (Shapiro, Mann-Whitney U) on segment-based groups and visualization of results.
+This project consists of the following steps, each detailed in its respective Jupyter Notebook:
 
-## Table of Contents
+1. **Data Cleaning and EDA** (`01_Data_Preprocessing_EDA.ipynb`)
 
-* [Project Summary](#project-summary)
-* [Project Objectives](#project-objectives)
-* [Folder and File Structure](#folder-and-file-structure)
-* [Data Dictionary](#data-dictionary)
-* [Libraries Used](#libraries-used)
-* [Workflow](#workflow)
-* [Notebook Summaries](#notebook-summaries)
-* [Setup and Execution](#setup-and-execution)
-
-## Notebook Summaries
-
-1. **Data Preprocessing & EDA** (`01_Data_Preprocessing_EDA.ipynb`)
-
-   * Loading and summarizing the raw dataset (`pandas`)
-   * Checking for and cleaning missing/duplicate records
-   * Type conversions and calculation of `TotalPrice = Quantity * Price`
-   * Outlier detection with IsolationForest (`scikit-learn`)
+   * Cleaning of missing and erroneous records
+   * Removal of duplicate records
+   * Type conversions and feature engineering
+   * Outlier detection with IsolationForest
    * Time series analyses: daily, monthly, hourly trends
-   * Sales analysis by country and product with interactive visualizations (`plotly`)
+   * Sales analysis by country and product with interactive visualizations
 
 2. **RFM Analysis & Segmentation** (`02_RFM_and_Segmentation.ipynb`)
 
    * Calculation of Recency, Frequency, Monetary scores
    * Creation and naming of customer segments
-   * KPI comparisons and distribution plots per segment (`seaborn`, `matplotlib`)
+   * KPI comparisons and distribution plots per segment
    * Geographic visualization of segments on maps
 
 3. **Churn Prediction** (`03_Churn_Prediction.ipynb`)
 
-   * Feature engineering: RFM, time-based and demographic features
-   * Train/validation split, scaling, and handling imbalanced data (`SMOTE`)
+   * Feature engineering: RFM, time-based, and demographic features
+   * Train/validation split, scaling
    * Models: Comparison of XGBoost, RandomForest, Logistic Regression
    * Evaluation metrics: ROC-AUC, F1, Precision-Recall curves
    * Visualization of feature importance
 
 4. **CLV Analysis** (`04_CLV_Analysis.ipynb`)
 
-   * Purchase frequency prediction using BG/NBD model (`lifetimes`)
+   * Purchase frequency prediction using BG/NBD model
    * Monetary value estimation with Gamma-Gamma model
-   * Hybrid XGBoost Model: Enhanced prediction using BG/NBD features
+   * Hybrid XGBoost model using BG/NBD features
    * 6-month CLV projections and total CLV per segment
    * Comparison of CLV results with RFM segments
    * Visualization of CLV distribution and key customer groups
@@ -108,7 +91,7 @@ The following fields summarize the columns and their meanings in the Online Reta
 
    * Selection of target segments and random assignment
    * Normality tests (Shapiro-Wilk), variance homogeneity checks
-   * Non-parametric tests (Mann-Whitney U) for analysis
+   * Non-parametric tests (Mann-Whitney U)
    * Detailed visualization and statistical reporting of results
 
 ## Setup and Execution
