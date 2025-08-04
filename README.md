@@ -1,121 +1,140 @@
 # Complete Customer Analytics with Online Retail II Dataset
 
-## Project Summary
+![Project Banner](images/3d_rfm_analysis.png)
 
-This project utilizes modern data science techniques to perform customer analytics, segmentation, churn prediction, customer lifetime value (CLV) analysis, and A/B testing on the Online Retail II dataset.
+## 📝 Project Summary
 
-## Project Objectives
+This project utilizes modern data science techniques to perform customer analytics, segmentation, churn prediction, customer lifetime value (CLV) analysis, and A/B testing on the Online Retail II dataset. The entire workflow is designed to transform raw transactional data into actionable business insights.
+
+## 🎯 Project Objectives
 
 The main objectives of this project are:
 
-* Which are the most valuable customer segments and what are their common characteristics?
-* Which customers are at high risk of churn, and what factors influence this risk?
-* What is the estimated future value (CLV) of customers, and which segments should the marketing budget focus on?
-* Is a particular marketing campaign (e.g., discount) effective in increasing customer spending?
+* Identify the most valuable customer segments and their common characteristics.
+* Pinpoint customers at high risk of churn and understand the factors influencing this risk.
+* Estimate the future value (CLV) of customers to guide marketing budget allocation.
+* Determine the effectiveness of a marketing campaign (e.g., a discount) on increasing customer spending.
 
-## Folder and File Structure
 
-* `data/`
+## 🛠️ Tech Stack
 
-  * `online_retail_II.csv`: Raw dataset
-  * `cleaned_online_retail_II.csv`: Cleaned dataset
-  * `rfm_analysis.csv`: RFM scores and segments
-* `01_Data_Preprocessing_EDA.ipynb`: Data preprocessing and exploratory data analysis
-* `02_RFM_and_Segmentation.ipynb`: RFM analysis and customer segmentation
-* `03_Churn_Prediction.ipynb`: Churn prediction modeling
-* `04_CLV_Analysis.ipynb`: Customer lifetime value (CLV) analysis
-* `05_AB_Testing.ipynb`: A/B testing and result analysis
-* `pyproject.toml`, `uv.lock`: Project dependencies and environment management
+<p align="left">
+    <a href="https://www.python.org" target="_blank"> <img src="https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python" alt="python"/> </a>
+    <a href="https://pandas.pydata.org/" target="_blank"> <img src="https://img.shields.io/badge/Pandas-2.3%2B-blue?style=for-the-badge&logo=pandas" alt="pandas"/> </a>
+    <a href="https://numpy.org/" target="_blank"> <img src="https://img.shields.io/badge/Numpy-1.26%2B-blue?style=for-the-badge&logo=numpy" alt="numpy"/> </a>
+    <a href="https://scikit-learn.org/" target="_blank"> <img src="https://img.shields.io/badge/scikit--learn-1.7%2B-orange?style=for-the-badge&logo=scikit-learn" alt="scikit-learn"/> </a>
+    <a href="https://xgboost.ai/" target="_blank"> <img src="https://img.shields.io/badge/XGBoost-3.0%2B-orange?style=for-the-badge&logo=xgboost" alt="xgboost"/> </a>
+    <a href="https://lifetimes.readthedocs.io/en/latest/" target="_blank"> <img src="https://img.shields.io/badge/Lifetimes-0.11.3-green?style=for-the-badge" alt="lifetimes"/> </a>
+    <a href="https://matplotlib.org/" target="_blank"> <img src="https://img.shields.io/badge/Matplotlib-3.10%2B-blueviolet?style=for-the-badge&logo=matplotlib" alt="matplotlib"/> </a>
+    <a href="https://seaborn.pydata.org/" target="_blank"> <img src="https://img.shields.io/badge/Seaborn-0.13%2B-blueviolet?style=for-the-badge&logo=seaborn" alt="seaborn"/> </a>
+    <a href="https://scipy.org/" target="_blank"> <img src="https://img.shields.io/badge/SciPy-1.16%2B-lightgrey?style=for-the-badge&logo=scipy" alt="scipy"/> </a>
+</p>
 
-## Data Dictionary
+## 📂 Project Structure
 
-The following fields summarize the columns and their meanings in the Online Retail II dataset:
+* `data/`: Contains raw, intermediate, and final datasets.
+* `images/`: Stores visual assets used in the README.
+* `notebooks/`: Houses the Jupyter Notebooks for each analysis stage.
 
-* `Invoice`: Invoice number (nominal). A unique 6-digit identifier for each transaction. If it starts with `C`, it indicates a cancellation invoice.
-* `StockCode`: Product (item) code (nominal). A unique code assigned to each product.
-* `Description`: Product name/description (nominal).
-* `Quantity`: Number of items sold per transaction (numeric, int64).
-* `InvoiceDate`: Date and time of the invoice (datetime).
-* `Price`: Unit price (numeric, float64). Price per unit, in £ (GBP).
-* `Customer ID`: Customer number (nominal). A unique 5-digit code assigned to each customer.
-* `Country`: Country name of the customer (nominal).
+  * `01_Data_Preprocessing_EDA.ipynb`
+  * `02_RFM_and_Segmentation.ipynb`
+  * `03_Churn_Prediction.ipynb`
+  * `04_CLV_Analysis.ipynb`
+  * `05_AB_Testing.ipynb`
+* `pyproject.toml`, `uv.lock`: Files for modern dependency and environment management.
+* `README.md`: This project overview.
 
-## Libraries Used
+## 📊 Data Dictionary
 
-* Python 3.12+
-* pandas, numpy
-* matplotlib, seaborn
-* scikit-learn
-* xgboost
-* lifetimes
-* scipy
+The dataset contains transactional data from a UK-based online retail company. Key fields used in the analysis include:
 
-## Workflow & Notebook Summaries
+| Feature       | Description                                                                   | Type         |
+| ------------- | ----------------------------------------------------------------------------- | ------------ |
+| `Invoice`     | A 6-digit nominal, unique for each transaction. 'C' indicates a cancellation. | `object`     |
+| `StockCode`   | A unique code assigned to each distinct product.                              | `object`     |
+| `Description` | The name of the product.                                                      | `object`     |
+| `Quantity`    | The number of units of a product sold in a transaction.                       | `int64`      |
+| `InvoiceDate` | The date and time when the transaction occurred.                              | `datetime64` |
+| `Price`       | The unit price of the product in British Pounds (£).                          | `float64`    |
+| `Customer ID` | A 5-digit unique identifier for each customer.                                | `float64`    |
+| `Country`     | The country where the customer resides.                                       | `object`     |
 
-This project consists of the following steps, each detailed in its respective Jupyter Notebook:
 
-1. **Data Cleaning and EDA** (`01_Data_Preprocessing_EDA.ipynb`)
+## 🔄 Workflow & Notebook Summaries
 
-   * Cleaning of missing and erroneous records
-   * Removal of duplicate records
-   * Type conversions and feature engineering
-   * Outlier detection with IsolationForest
-   * Time series analyses: daily, monthly, hourly trends
-   * Sales analysis by country and product with interactive visualizations
+This project follows a sequential workflow, with each step detailed in its respective Jupyter Notebook.
 
-2. **RFM Analysis & Segmentation** (`02_RFM_and_Segmentation.ipynb`)
+1. **Data Cleaning and EDA** (`notebooks/01_Data_Preprocessing_EDA.ipynb`)
 
-   * Calculation of Recency, Frequency, Monetary scores
-   * Creation and naming of customer segments
-   * KPI comparisons and distribution plots per segment
-   * Geographic visualization of segments on maps
+   * Cleans and preprocesses over 1 million records, handling missing values, duplicates, and cancellations.
+   * Performs feature engineering.
+   * Applies `IsolationForest` for sophisticated outlier detection.
+   * Conducts comprehensive exploratory data analysis (EDA) to uncover trends in sales over time, by country, and by product.
 
-3. **Churn Prediction** (`03_Churn_Prediction.ipynb`)
+2. **RFM Analysis & Segmentation** (`notebooks/02_RFM_and_Segmentation.ipynb`)
 
-   * Feature engineering: RFM, time-based, and demographic features
-   * Train/validation split, scaling
-   * Models: Comparison of XGBoost, RandomForest, Logistic Regression
-   * Evaluation metrics: ROC-AUC, F1, Precision-Recall curves
-   * Visualization of feature importance
+   * Calculates Recency, Frequency, and Monetary (RFM) metrics for each customer.
+   * Segments customers into actionable groups like "Best Customers," "At-Risk," and "Promising Customers."
+   * Visualizes segment distributions and characteristics using 2D and 3D plots.
 
-4. **CLV Analysis** (`04_CLV_Analysis.ipynb`)
+3. **Churn Prediction** (`notebooks/03_Churn_Prediction.ipynb`)
 
-   * Purchase frequency prediction using BG/NBD model
-   * Monetary value estimation with Gamma-Gamma model
-   * Hybrid XGBoost model using BG/NBD features
-   * 6-month CLV projections and total CLV per segment
-   * Comparison of CLV results with RFM segments
-   * Visualization of CLV distribution and key customer groups
+   * Defines churn based on a 90-day inactivity window.
+   * Builds and compares `Logistic Regression`, `Random Forest`, and `XGBoost` models.
+   * Evaluates models using ROC-AUC, F1-score, and confusion matrices to identify the best-performing algorithm.
+   * Visualizes feature importance to understand key drivers of customer churn.
 
-5. **A/B Testing** (`05_AB_Testing.ipynb`)
+4. **CLV Analysis** (`notebooks/04_CLV_Analysis.ipynb`)
 
-   * Selection of target segments and random assignment
-   * Normality tests (Shapiro-Wilk), variance homogeneity checks
-   * Non-parametric tests (Mann-Whitney U)
-   * Detailed visualization and statistical reporting of results
+   * Implements the probabilistic **BG/NBD** model to predict future transaction frequency.
+   * Uses the **Gamma-Gamma** model to estimate the average monetary value of transactions.
+   * Hybrid XGBoost model using **BG/NBD** features.
+   * Comparison of CLV results with RFM segments.
+   * Visualization of CLV distribution and key customer groups.
 
-## Setup and Execution
+5. **A/B Testing** (`notebooks/05_AB_Testing.ipynb`)
+
+   * Simulates an A/B test scenario to measure the impact of a discount campaign.
+   * Applies appropriate statistical tests (**Shapiro-Wilk** for normality, **Mann-Whitney U** for comparison) to determine statistical significance.
+   * Provides clear visualizations and reporting of the test results.
+
+## 🚀 Setup and Execution
 
 ### Environment Setup (Windows PowerShell)
 
-1. Python 3.12+ must be installed.
-2. (Optional) Create and activate a virtual environment:
+1. Ensure **Python 3.12+** is installed.
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+3. (Recommended) Create and activate a virtual environment:
 
    ```powershell
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    ```
-3. Install dependencies via `pyproject.toml` (choose one of the following methods):
+4. Install the required dependencies using a modern package manager. `uv` is recommended for its speed.
 
-   * Using pip:
+   * **Using uv (Recommended):**
+
+     ```powershell
+     pip install -U uv  # Install uv if you haven't already
+     uv pip install -e .
+     ```
+   * **Using pip:**
 
      ```powershell
      pip install -U pip
      pip install -e .
      ```
-   * Using uv:
+5. Launch Jupyter Notebook or JupyterLab and navigate to the `notebooks/` directory to explore the analyses.
 
-     ```powershell
-     pip install -U uv  # if uv is not already installed
-     uv pip install -e .
-     ```
+   ```bash
+   jupyter notebook
+   ```
+
+## 📬 Contact
+
+Mert Afacan – [https://www.linkedin.com/in/mert-afacan/](https://www.linkedin.com/in/mert-afacan/) – [mert0afacan@gmail.com](mailto:mert0afacan@gmail.com)
