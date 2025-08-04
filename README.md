@@ -1,4 +1,4 @@
-# Online Retail II - Complete Customer Analytics Project
+# Complete Customer Analytics with Online Retail II Dataset
 
 ## Project Summary
 
