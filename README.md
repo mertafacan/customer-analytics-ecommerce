@@ -41,12 +41,11 @@ The main business objectives of this project are:
 
 *   `data/`: Contains raw, intermediate, and final datasets.
 *   `images/`: Stores visual assets used in the README.
-*   `notebooks/`: Houses the Jupyter Notebooks for each analysis stage.
-    *   `01_Data_Preprocessing_EDA.ipynb`
-    *   `02_RFM_and_Segmentation.ipynb`
-    *   `03_Churn_Prediction.ipynb`
-    *   `04_CLV_Analysis.ipynb`
-    *   `05_AB_Testing.ipynb`
+*   `01_Data_Preprocessing_EDA.ipynb`
+*   `02_RFM_and_Segmentation.ipynb`
+*   `03_Churn_Prediction.ipynb`
+*   `04_CLV_Analysis.ipynb`
+*   `05_AB_Testing.ipynb`
 *   `pyproject.toml`, `uv.lock`: Files for modern dependency and environment management.
 *   `README.md`: This project overview.
 
@@ -69,31 +68,31 @@ The dataset contains transactional data from a UK-based online retail company. K
 
 This project follows a sequential workflow, with each step detailed in its respective Jupyter Notebook.
 
-1.  **Data Cleaning and EDA** (`notebooks/01_Data_Preprocessing_EDA.ipynb`)
+1.  **Data Cleaning and EDA** (`01_Data_Preprocessing_EDA.ipynb`)
     *   Cleans and preprocesses over 1 million records, handling missing values, duplicates, and cancellations.
     *   Performs feature engineering to create analysis-ready features.
     *   Applies `IsolationForest` for sophisticated outlier detection.
     *   Conducts comprehensive exploratory data analysis (EDA) to uncover trends in sales over time, by country, and by product.
 
-2.  **RFM Analysis & Segmentation** (`notebooks/02_RFM_and_Segmentation.ipynb`)
+2.  **RFM Analysis & Segmentation** (`02_RFM_and_Segmentation.ipynb`)
     *   Calculates Recency, Frequency, and Monetary (RFM) metrics for each customer.
     *   Segments customers into actionable groups like "Best Customers," "At-Risk," and "Promising Customers."
     *   Visualizes segment distributions and characteristics using 2D and 3D plots.
 
-3.  **Churn Prediction** (`notebooks/03_Churn_Prediction.ipynb`)
+3.  **Churn Prediction** (`03_Churn_Prediction.ipynb`)
     *   Defines churn based on a 90-day inactivity window.
     *   Builds and compares `Logistic Regression`, `Random Forest`, and `XGBoost` models.
     *   Evaluates models using ROC-AUC, F1-score, and confusion matrices to identify the best-performing algorithm.
     *   Visualizes feature importance to understand key drivers of customer churn.
 
-4.  **CLV Analysis** (`notebooks/04_CLV_Analysis.ipynb`)
+4.  **CLV Analysis** (`04_CLV_Analysis.ipynb`)
     *   Implements the probabilistic **BG/NBD** model to predict future transaction frequency.
     *   Uses the **Gamma-Gamma** model to estimate the average monetary value of transactions.
     *   Develops a hybrid XGBoost model using **BG/NBD** features for enhanced CLV prediction.
     *   Compares CLV results with RFM segments for validation.
     *   Visualizes CLV distribution and identifies key customer groups.
 
-5.  **A/B Testing** (`notebooks/05_AB_Testing.ipynb`)
+5.  **A/B Testing** (`05_AB_Testing.ipynb`)
     *   Simulates an A/B test scenario to measure the impact of a discount campaign.
     *   Applies appropriate statistical tests (**Shapiro-Wilk** for normality, **Mann-Whitney U** for comparison) to determine statistical significance.
     *   Provides clear visualizations and reporting of the test results.
@@ -110,21 +109,16 @@ This project follows a sequential workflow, with each step detailed in its respe
     ```
 3.  (Recommended) Create and activate a virtual environment:
     ```powershell
-    python -m venv .venv
-    .\.venv\Scripts\Activate.ps1
+    uv venv
+    .venv\Scripts\activate
     ```
 4.  Install the required dependencies using a modern package manager. `uv` is recommended for its speed.
     *   **Using uv (Recommended):**
         ```powershell
         pip install -U uv  # Install uv if you haven't already
-        uv pip install -e .
+        uv sync
         ```
-    *   **Using pip:**
-        ```powershell
-        pip install -U pip
-        pip install -e .
-        ```
-5.  Launch Jupyter Notebook or JupyterLab and navigate to the `notebooks/` directory to explore the analyses. (Optional)
+5.  Launch Jupyter Notebook or JupyterLab to explore the analyses. (Optional)
     ```powershell
     jupyter notebook
     ```
