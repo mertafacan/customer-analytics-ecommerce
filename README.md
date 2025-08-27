@@ -104,8 +104,8 @@ This project follows a sequential workflow, with each step detailed in its respe
 1.  Ensure **Python 3.12+** is installed.
 2.  Clone the repository:
     ```powershell
-    git clone https://github.com/mertafacan/Complete-Customer-Analytics-for-E-Commerce.git
-    cd Complete-Customer-Analytics-for-E-Commerce
+    git clone https://github.com/mertafacan/complete-customer-analytics-ecommerce.git
+    cd complete-customer-analytics-ecommerce
     ```
 3.  (Recommended) Create and activate a virtual environment:
     ```powershell
